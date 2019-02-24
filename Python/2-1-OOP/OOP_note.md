@@ -10,14 +10,14 @@
     - 运算类魔法函数
     
 # 1. 面向对象概述（ObjectOriented，OO）
-- OOP思想
+- OOP思想``
     - 接触到任意一个任务，首先想到的是任务这个世界的构成，是由模型构成的
 - 几个名词
     - OO: 面向对象
-    - OOA：面向对象的分析
-    - OOD：面向对象的设计
-    - OOI：xxx的实现
-    - OOP：xxX的编程
+    - OOA：面向对象的分析(analyse)
+    - OOD：面向对象的设计(design)
+    - OOI：xxx的实现(implyment)
+    - OOP：xxX的编程(program)
     - OOA->OOD->OOI: 面向对象的实现过程
     
 - 类和对象的概念
@@ -60,14 +60,23 @@
         - class_name.__dict__ 
         
  # 3. anaconda基本使用
- - anaconda主要是一个虚拟管理环境
+ - anaconda主要是一个虚拟环境管理器
  - 还是一个安装包管理器
  - conda list：显示anaconda安装的包
  - conda env list：显示anaconda的虚拟环境列表  
  - conda create -n xxx python=3.7：创建python版本为3.7的虚拟环境，名称为xxx
     -   # To activate this environment, use:
-        # > activate oop
+    -   # > activate oop
+    -   # To deactivate an active environment, use:
+    -   # > deactivate 
     
-        # To deactivate an active environment, use:
-        # > deactivate 
-    
+# 4. 类与对象的成员分析
+- 类和对象的都可以存储成员，成员可以归类所有，也可以归对象所有
+- 类存储成员时使用的是与类关联的一个对象
+- 独享存储成员是存储在当前对象中
+- 对象访问一个成员时，如果对象没有该成员，尝试访问类的同名成员
+    如果对象有此成员时，一定使用对象中的成员
+- 创建对象的时候，类中的成员不会放入对象之中，而是得到一个空对象，没有成员
+- 通过对象的成员赋值或者添加成员时，对应成员会保存在对象中，而不会修改类成员
+
+# 5. self（类似于this）
