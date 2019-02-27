@@ -140,3 +140,46 @@
     - super的作用是获取MRO（MethodResolutionOrder）列表中的第一个类
     - super与父类没有直接关系，但是通过super可以调用到父类
     - super的使用方法：参见构造函数中调用父类的构造函数
+- 单继承和多继承
+    - 单继承：每个类只能继承一个类
+    - 多继承：每个类允许继承多个类
+    - 单继承和多继承的优缺点
+        - 单继承
+            - 优点：传承有序逻辑清晰语法简单隐患少
+            - 缺点：功能不能无限扩展，只能在当前唯一的继承链中扩展
+        - 多继承
+            - 优点：类的功能扩展方便
+            - 缺点：继承关系复杂
+    - 菱形继承/钻石继承
+        -多个子类继承于同一个父类，这些子类由同一个类继承，继承关系形成一个菱形图谱
+        - https://www.cnblogs.com/whatisfantasy/p/6046991.html
+        - 关于多继承的MRO
+            - MRO就是多继承中，用于保护继承顺序的一个列表
+            - python本身采用C3算法来对多继承的菱形进程进行计算的结果
+            - MRO列表的计算原则
+                - 子类永远在父类前
+                - 如果有多个父类，则根据继承语法中括号内类的书写顺序存放
+                - 如果多个类继承了同一个父类，孙子类中只会选取继承与法括号中第一个父类的父类
+- 魔法函数（构造函数）
+    - 在对象进行实例化时，系统自动调用的一个函数叫构造函数，通常此函数用来对实例对象进行初始化
+        def __init__(self):
+            self. = 
+    - 构造函数一定要有，如果没有，则自动向上查找，按照MRO顺序，直到找到为止
+
+## 3.3 多态
+- 多态就是同一个对象在不同情况下有不同的状态出现
+- 多态不是语法，是一种设计思想
+- 多态性：一种调用方法，不同的执行效果
+- 【多态和多态性】https://www.cnblogs.com/luchuangao/p/6739557.html
+
+-Mixin设计模式
+    - 主要采用多继承方式对类的功能进行扩展
+    
+    - 【Mixin概念】https://www.zhihu.com/question/20778853
+    - 【MRO and Mixin】http:/blog.csdn.net/robinjwong/article/details/48375...
+    - 【Mixin模式】https://wwwcnblogs.com/xybaby/p/6484262.html
+    - 【Mixin MRO】http://runforever.github.io/2014-09-19/2014-37-19-python...
+    - 【MRO】http://xiaocong.github.io/blog/2012/06/13/python-mixin-and-mro/...
+    - 使用多继承的语法来实现Mixin
+    - 使用Mixin实现多继承的时候要注意
+        - 必须表示某一单一功能
